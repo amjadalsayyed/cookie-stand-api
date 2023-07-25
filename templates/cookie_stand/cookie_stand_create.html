@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<div
+<!-- <div
   class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700"
 >
   <form class="space-y-6" method="POST">
@@ -10,14 +10,14 @@
     </h5>
     <div>
       <label
-        for="id_name"
+        for="id_location"
         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Cookie Stand Name</label
+        >Cookie Stand location</label
       >
       <input
         type="text"
-        name="name"
-        id="id_name"
+        name="location"
+        id="id_location"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
         placeholder="e.g. celery"
         required
@@ -25,14 +25,14 @@
     </div>
     <div>
       <label
-        for="id_rating"
+        for="id_hourly_sales"
         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Cookie Stand Rating</label
+        >Cookie Stand hourly_sales</label
       >
       <input
         type="number"
-        name="rating"
-        id="id_rating"
+        name="hourly_sales"
+        id="id_hourly_sales"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
         value="0"
         min="0"
@@ -42,12 +42,12 @@
     </div>
     <div>
       <label
-        for="id_reviewer"
+        for="id_owner"
         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Reviewer</label
+        >Owner</label
       >
-      <select name="reviewer" id="id_reviewer">
-        {% for value, choice in form.fields.reviewer.choices %}
+      <select name="owner" id="id_owner">
+        {% for value, choice in form.fields.owner.choices %}
         <option value="{{ value }}">{{ choice }}</option>
         {% endfor %}
       </select>
@@ -60,6 +60,18 @@
       Create
     </button>
   </form>
+</div> -->
+<div
+  class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700"
+>
+  <form class="space-y-6" method="POST">
+    {% csrf_token %} {{form.as_p}}
+    <button
+      type="submit"
+      class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    >
+      Create
+    </button>
+  </form>
 </div>
-
 {% endblock content %}
